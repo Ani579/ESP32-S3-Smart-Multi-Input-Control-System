@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "Aniruddha Chakraborty",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 25.8, "left": -227.6, "attrs": {} },
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -9.78,
+      "left": -417.83,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -163.8,
+      "left": -263.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick2",
+      "top": -163.8,
+      "left": -119.4,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -97.3, "left": 86.2, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 16,
+      "left": 178.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "joystick1:VCC", "bb1:tp.2", "red", [ "v48", "h48" ] ],
+    [ "joystick1:GND", "bb1:tn.3", "black", [ "v57.6", "h9.6" ] ],
+    [ "joystick2:VCC", "bb1:tp.11", "red", [ "v38.4", "h9.6" ] ],
+    [ "joystick2:GND", "bb1:tn.12", "black", [ "v48", "h-19.2" ] ],
+    [ "esp:3V3.1", "bb1:tp.1", "red", [ "v-67.2", "h143.95", "v86.4" ] ],
+    [ "joystick1:SEL", "bb1:1t.a", "green", [ "v0" ] ],
+    [ "joystick1:HORZ", "bb1:5t.a", "green", [ "v67.2", "h19.2" ] ],
+    [ "joystick1:VERT", "bb1:6t.a", "green", [ "v38.4", "h67.2" ] ],
+    [ "bb1:1t.b", "esp:3", "green", [ "v0", "h-105.6", "v182.4", "h-124.8", "v-134.4" ] ],
+    [ "bb1:5t.b", "esp:1", "green", [ "v19.2", "h-134.4", "v-57.6" ] ],
+    [ "bb1:6t.b", "esp:2", "green", [ "v38.4", "h-124.8", "v-67.2" ] ],
+    [ "joystick2:VERT", "bb1:20t.a", "cyan", [ "v28.8", "h9.6" ] ],
+    [ "joystick2:HORZ", "bb1:21t.b", "cyan", [ "v19.2", "h67.2" ] ],
+    [ "joystick2:SEL", "bb1:22t.c", "cyan", [ "v9.6", "h57.6" ] ],
+    [ "pot1:GND", "bb1:tn.25", "black", [ "v76.8", "h-38.4" ] ],
+    [ "pot1:VCC", "bb1:tp.25", "red", [ "v67.2", "h-58.4" ] ],
+    [ "pot1:SIG", "bb1:30b.f", "gold", [ "v0" ] ],
+    [ "esp:GND.3", "bb1:tn.1", "black", [ "h76.8", "v-163.2" ] ],
+    [ "bb1:30b.g", "esp:7", "gold", [ "v153.6", "h-528", "v-230.4" ] ],
+    [ "bb1:20t.b", "esp:5", "cyan", [ "v192", "h-470.4", "v-220.8", "h76.8" ] ],
+    [ "bb1:21t.c", "esp:4", "cyan", [ "v192", "h-460.8", "v-240" ] ],
+    [ "bb1:22t.d", "esp:6", "cyan", [ "v192", "h-460.8", "v-230.4" ] ],
+    [ "lcd1:GND", "bb1:tn.20", "black", [ "h-38.4", "v9.6", "h-124.8" ] ],
+    [ "lcd1:VCC", "bb1:tp.19", "red", [ "h-28.8", "v9.7", "h-144" ] ],
+    [ "lcd1:SDA", "esp:8", "purple", [ "h-19.2", "v249.8", "h-662.4", "v-192" ] ],
+    [ "lcd1:SCL", "esp:9", "purple", [ "h-9.6", "v249.9", "h-700.8", "v-172.8" ] ]
+  ],
+  "dependencies": {}
+}
